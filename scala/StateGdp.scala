@@ -12,10 +12,10 @@ object StateGdp {
     val source = Source.fromFile(filePath)
     val lines = source.getLines().drop(1) //skip header
 
-    var maxGDP = 0.0
+    var maxGDP = 0
     var stateWithMaxGDP = ""
-    var totalGDP = 0.0
-    var totalPerCapitaIncome = 0.0
+    var totalGDP = 0
+    var totalPerCapitaIncome = 0
     var count = 0
 
     // Process each line
@@ -24,8 +24,8 @@ object StateGdp {
 
       //columns are in order: State, GDP, Per Capita Income
       val state = cols(0)
-      val gdp = cols(1).toFloat
-      val perCapitaIncome = cols(2).toFloat
+      val gdp = cols(1).toInt
+      val perCapitaIncome = cols(2).toInt
 
       // Find state with highest GDP contribution
       if (gdp > maxGDP) {
